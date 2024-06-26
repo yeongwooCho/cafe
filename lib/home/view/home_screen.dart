@@ -47,7 +47,7 @@ class HomeScreen extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Image.asset(ImagePath.banner),
+            Image.asset(ImagePath.homeBanner),
             const SizedBox(height: 60.0),
             const _Footer(),
           ],

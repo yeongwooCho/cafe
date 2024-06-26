@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../common/const/image_path.dart';
 import '../../common/layout/default_app_bar.dart';
 import '../../common/layout/default_layout.dart';
 
@@ -16,8 +17,15 @@ class ProductScreen extends ConsumerWidget {
         title: '중고거래',
         centerTitle: true,
       ),
-      child: Center(
-        child: Text('중고거래'),
+      child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Image.asset(ImagePath.productBanner),
+            const SizedBox(height: 60.0),
+          ],
+        ),
       ),
     );
   }
