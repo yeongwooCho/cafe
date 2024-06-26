@@ -9,7 +9,7 @@ import '../layout/default_layout.dart';
 
 const Map<int, String> NAV_INDEX_ENDPOINT_MAPPER = {
   0: '/home',
-  1: '/pt',
+  1: '/personal_training',
   2: '/product',
   3: '/profile'
 };

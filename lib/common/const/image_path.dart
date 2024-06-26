@@ -22,4 +22,8 @@ class ImagePath {
   static const homeBanner = "asset/img/banner/home_banner.png";
   static const personalTrainingBanner = "asset/img/banner/personal_training_banner.png";
   static const productBanner = "asset/img/banner/product_banner.png";
+
+  /// personal_training directory
+  static const ptDirectory = "asset/img/personal_training/";
+
 }

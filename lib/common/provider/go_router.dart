@@ -53,7 +53,7 @@ List<RouteBase> get routes => [
           StatefulShellBranch(
             routes: [
               GoRoute(
-                path: "/pt",
+                path: "/personal_training",
                 name: PersonalTrainingScreen.routeName,
                 builder: (context, state) => PersonalTrainingScreen(),
               ),
