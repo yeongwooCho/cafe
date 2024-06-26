@@ -59,6 +59,7 @@ List<RouteBase> get routes => [
                 builder: (context, state) => PersonalTrainingScreen(),
                 routes: [
                   GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
                     path: ":id",
                     name: PersonalTrainingDetailScreen.routeName,
                     builder: (context, state) {
