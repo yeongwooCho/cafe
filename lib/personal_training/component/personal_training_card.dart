@@ -79,12 +79,12 @@ class PersonalTrainingCard extends StatelessWidget {
                   mainImageUrl,
                   fit: BoxFit.fill,
                   height: 200.0,
-                  width: cardWidth,
+                  width: isDetail ? double.infinity : cardWidth,
                   // height: 200.0,
                 ),
               ),
               SizedBox(
-                width: cardWidth,
+                width: isDetail ? double.infinity : cardWidth,
                 child: Padding(
                   padding: const EdgeInsets.only(
                     top: 16.0,
@@ -102,7 +102,7 @@ class PersonalTrainingCard extends StatelessWidget {
                       Text(
                         description,
                         style: MyTextStyle.bodyRegular,
-                        overflow: TextOverflow.ellipsis,
+                        overflow: isDetail ? null : TextOverflow.ellipsis,
                       ),
                       const SizedBox(height: 8.0),
                       _DescriptionContainer(
