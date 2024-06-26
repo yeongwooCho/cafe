@@ -53,6 +53,16 @@ class PersonalTrainingStateNotifier
           representative: '김세준',
           contactInfo: '01012341234',
         ),
+        detailImages: [
+          '${ImagePath.ptDirectory}0.png',
+          '${ImagePath.ptDirectory}0.png',
+          '${ImagePath.ptDirectory}0.png',
+          '${ImagePath.ptDirectory}0.png',
+          '${ImagePath.ptDirectory}0.png',
+          '${ImagePath.ptDirectory}0.png',
+          '${ImagePath.ptDirectory}0.png',
+          '${ImagePath.ptDirectory}0.png',
+        ],
       ),
     );
   }
