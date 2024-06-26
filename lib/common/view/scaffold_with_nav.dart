@@ -47,7 +47,7 @@ class _ScaffoldWithNavState extends State<ScaffoldWithNav> {
 
     return DefaultLayout(
       bottomNavigationBar: BottomNavigationBar(
-        elevation: 0.0,
+        elevation: 20.0,
         backgroundColor: MyColor.white,
         selectedItemColor: MyColor.text,
         selectedLabelStyle: MyTextStyle.bodyBold.copyWith(fontSize: 12.0),
