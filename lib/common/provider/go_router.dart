@@ -1,3 +1,4 @@
+import 'package:cafe/personal_training/view/personal_training_detail_screen.dart';
 import 'package:cafe/personal_training/view/personal_training_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -56,6 +57,16 @@ List<RouteBase> get routes => [
                 path: "/personal_training",
                 name: PersonalTrainingScreen.routeName,
                 builder: (context, state) => PersonalTrainingScreen(),
+                routes: [
+                  GoRoute(
+                    path: ":id",
+                    name: PersonalTrainingDetailScreen.routeName,
+                    builder: (context, state) {
+                      final String id = state.pathParameters["id"]!;
+                      return PersonalTrainingDetailScreen(id: id);
+                    },
+                  ),
+                ],
               ),
             ],
           ),
