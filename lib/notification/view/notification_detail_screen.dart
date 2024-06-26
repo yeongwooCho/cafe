@@ -25,6 +25,7 @@ class NotificationDetailScreen extends ConsumerWidget {
     return DefaultLayout(
       appbar: const DefaultAppBar(title: ''),
       child: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
           child: Column(

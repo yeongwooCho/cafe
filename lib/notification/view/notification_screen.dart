@@ -22,7 +22,8 @@ class NotificationScreen extends ConsumerWidget {
     return DefaultLayout(
       appbar: const DefaultAppBar(title: '공지사항'),
       child: ListView.separated(
-        padding: const EdgeInsets.symmetric(vertical: 20.0),
+        physics: const BouncingScrollPhysics(),
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 24.0),
         itemBuilder: (BuildContext context, int index) {
           final notification = notifications[index];
           return GestureDetector(
@@ -35,8 +36,7 @@ class NotificationScreen extends ConsumerWidget {
               );
             },
             child: Padding(
-              padding:
-                  const EdgeInsets.symmetric(horizontal: 24.0, vertical: 16.0),
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -61,7 +61,6 @@ class NotificationScreen extends ConsumerWidget {
         separatorBuilder: (_, index) {
           return Container(
             height: 1.0,
-            width: MediaQuery.of(context).size.width - 148,
             color: MyColor.middleGrey,
           );
         },
