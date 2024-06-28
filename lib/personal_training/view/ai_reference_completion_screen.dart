@@ -2,8 +2,10 @@ import 'package:cafe/common/component/default_button.dart';
 import 'package:cafe/common/layout/default_app_bar.dart';
 import 'package:cafe/common/layout/default_layout.dart';
 import 'package:cafe/personal_training/provider/personal_training_provider.dart';
+import 'package:cafe/personal_training/view/request_consultation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../common/const/colors.dart';
 import '../component/horizontal_page_view.dart';
@@ -32,8 +34,10 @@ class AIReferenceCompletionScreen extends ConsumerWidget {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 8.0),
           child: PrimaryButton(
-            onPressed: () {},
-            child: const Text('예약하기'),
+            onPressed: () {
+              context.goNamed(RequestConsultationScreen.routeName);
+            },
+            child: const Text('상담 예약'),
           ),
         ),
       ),
@@ -42,13 +46,6 @@ class AIReferenceCompletionScreen extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            // ListView.separated(
-            //   itemBuilder: (BuildContext context, int index) {},
-            //   separatorBuilder: (BuildContext context, int index) {
-            //     return const SizedBox(height: 40.0);
-            //   },
-            //   itemCount: 4,
-            // ),
             const SizedBox(height: 40.0),
             HorizontalPageView(
               title: '종합 추천',

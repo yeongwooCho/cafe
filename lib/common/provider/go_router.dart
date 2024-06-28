@@ -2,6 +2,7 @@ import 'package:cafe/personal_training/view/ai_reference_completion_screen.dart'
 import 'package:cafe/personal_training/view/ai_reference_screen.dart';
 import 'package:cafe/personal_training/view/personal_training_detail_screen.dart';
 import 'package:cafe/personal_training/view/personal_training_screen.dart';
+import 'package:cafe/personal_training/view/request_consultation_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -34,7 +35,7 @@ final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
   redirect: null,
   // initialLocation: '/splash',
-  initialLocation: '/personal_training/ai_reference',
+  initialLocation: '/splash',
   routes: routes,
   errorBuilder: (context, state) => ErrorScreen(
     error: state.error.toString(),
@@ -73,6 +74,15 @@ List<RouteBase> get routes => [
                         name: AIReferenceCompletionScreen.routeName,
                         builder: (context, state) =>
                             AIReferenceCompletionScreen(),
+                        routes: [
+                          GoRoute(
+                            parentNavigatorKey: _rootNavigatorKey,
+                            path: "request_consultation",
+                            name: RequestConsultationScreen.routeName,
+                            builder: (context, state) =>
+                                RequestConsultationScreen(),
+                          ),
+                        ]
                       ),
                     ],
                   ),
