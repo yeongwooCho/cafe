@@ -1,3 +1,4 @@
+import 'package:cafe/personal_training/view/ai_reference_completion_screen.dart';
 import 'package:cafe/personal_training/view/ai_reference_screen.dart';
 import 'package:cafe/personal_training/view/personal_training_detail_screen.dart';
 import 'package:cafe/personal_training/view/personal_training_screen.dart';
@@ -32,7 +33,8 @@ final _shellNavigatorKey = GlobalKey<NavigatorState>();
 final router = GoRouter(
   navigatorKey: _rootNavigatorKey,
   redirect: null,
-  initialLocation: '/splash',
+  // initialLocation: '/splash',
+  initialLocation: '/personal_training/ai_reference',
   routes: routes,
   errorBuilder: (context, state) => ErrorScreen(
     error: state.error.toString(),
@@ -64,6 +66,15 @@ List<RouteBase> get routes => [
                     path: "ai_reference",
                     name: AIReferenceScreen.routeName,
                     builder: (context, state) => AIReferenceScreen(),
+                    routes: [
+                      GoRoute(
+                        parentNavigatorKey: _rootNavigatorKey,
+                        path: "completion",
+                        name: AIReferenceCompletionScreen.routeName,
+                        builder: (context, state) =>
+                            AIReferenceCompletionScreen(),
+                      ),
+                    ],
                   ),
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,

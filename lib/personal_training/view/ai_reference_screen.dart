@@ -4,7 +4,9 @@ import 'package:cafe/common/component/default_button.dart';
 import 'package:cafe/common/const/text_styles.dart';
 import 'package:cafe/common/layout/default_app_bar.dart';
 import 'package:cafe/common/layout/default_layout.dart';
+import 'package:cafe/personal_training/view/ai_reference_completion_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class AIReferenceScreen extends StatefulWidget {
   static String get routeName => 'ai_reference';
@@ -110,7 +112,7 @@ class _AIReferenceScreenState extends State<AIReferenceScreen> {
               const SizedBox(height: 40.0),
               PrimaryButton(
                 onPressed: () {
-
+                  context.goNamed(AIReferenceCompletionScreen.routeName);
                 },
                 child: const Text('추천받기'),
               ),
