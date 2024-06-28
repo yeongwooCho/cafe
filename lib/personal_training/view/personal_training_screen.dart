@@ -1,8 +1,10 @@
 import 'package:cafe/common/const/colors.dart';
 import 'package:cafe/common/const/text_styles.dart';
 import 'package:cafe/personal_training/component/horizontal_page_view.dart';
+import 'package:cafe/personal_training/view/ai_reference_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../common/const/image_path.dart';
 import '../../common/layout/default_app_bar.dart';
@@ -31,9 +33,19 @@ class PersonalTrainingScreen extends ConsumerWidget {
               padding: const EdgeInsets.symmetric(horizontal: 24.0),
               child: Row(
                 children: [
-                  _renderContainerButton(title: 'PT샵\n전체보기', onTap: () {}),
+                  _renderContainerButton(
+                    topOfTitle: '전체보기',
+                    downOfTitle: 'PT샵',
+                    onTap: () {},
+                  ),
                   const SizedBox(width: 8.0),
-                  _renderContainerButton(title: 'AI 추천\nPT샵', onTap: () {}),
+                  _renderContainerButton(
+                    topOfTitle: 'AI 추천',
+                    downOfTitle: 'PT샵',
+                    onTap: () {
+                      context.goNamed(AIReferenceScreen.routeName);
+                    },
+                  ),
                 ],
               ),
             ),
@@ -55,7 +67,8 @@ class PersonalTrainingScreen extends ConsumerWidget {
   }
 
   Widget _renderContainerButton({
-    required String title,
+    required String topOfTitle,
+    required String downOfTitle,
     required VoidCallback onTap,
   }) {
     return Expanded(
@@ -70,10 +83,21 @@ class PersonalTrainingScreen extends ConsumerWidget {
               borderRadius: BorderRadius.circular(8.0)),
           child: Padding(
             padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: Text(
-              title,
-              style: MyTextStyle.bodyRegular,
-              textAlign: TextAlign.center,
+            child: Column(
+              children: [
+                Text(
+                  topOfTitle,
+                  style: MyTextStyle.bodyMedium.copyWith(
+                    color: MyColor.primary,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                Text(
+                  downOfTitle,
+                  style: MyTextStyle.bodyRegular,
+                  textAlign: TextAlign.center,
+                ),
+              ],
             ),
           ),
         ),

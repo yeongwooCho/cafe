@@ -1,3 +1,4 @@
+import 'package:cafe/personal_training/view/ai_reference_screen.dart';
 import 'package:cafe/personal_training/view/personal_training_detail_screen.dart';
 import 'package:cafe/personal_training/view/personal_training_screen.dart';
 import 'package:flutter/material.dart';
@@ -58,6 +59,12 @@ List<RouteBase> get routes => [
                 name: PersonalTrainingScreen.routeName,
                 builder: (context, state) => PersonalTrainingScreen(),
                 routes: [
+                  GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
+                    path: "ai_reference",
+                    name: AIReferenceScreen.routeName,
+                    builder: (context, state) => AIReferenceScreen(),
+                  ),
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,
                     path: ":id",
