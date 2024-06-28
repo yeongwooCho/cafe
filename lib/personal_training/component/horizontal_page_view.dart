@@ -40,7 +40,7 @@ class HorizontalPageView extends StatelessWidget {
 
               return InkWell(
                 onTap: () {
-                  context.goNamed(
+                  context.pushNamed(
                     PersonalTrainingDetailScreen.routeName,
                     pathParameters: {"id": pt.id},
                   );
