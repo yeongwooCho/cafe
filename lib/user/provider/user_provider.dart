@@ -1,3 +1,4 @@
+import 'package:cafe/user/model/address_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../common/const/image_path.dart';
@@ -57,6 +58,14 @@ class UserStateNotifier extends StateNotifier<UserModelBase> {
       phone: '01012341234',
       profileImage: ImagePath.user,
       recentlyViewedItems: [],
+      address: AddressModel(
+        id: 1,
+        name: '김고호',
+        phone: '010-1234-1234',
+        address: '서울특별시 종로구 세종대로 172',
+        detailAddress: '103동 502호',
+        memo: '부재시 경비실에 맡겨주세요.',
+      ),
     );
   }
 }

@@ -1,3 +1,5 @@
+import 'address_model.dart';
+
 abstract class UserModelBase {}
 
 class UserModelLoading extends UserModelBase {}
@@ -18,6 +20,7 @@ class UserModel extends UserModelBase {
   final String name;
   final String phone;
   final String profileImage;
+  final AddressModel address;
   final List<String> recentlyViewedItems;
 
   UserModel({
@@ -28,6 +31,7 @@ class UserModel extends UserModelBase {
     required this.name,
     required this.phone,
     required this.profileImage,
+    required this.address,
     required this.recentlyViewedItems,
   });
 
@@ -39,6 +43,7 @@ class UserModel extends UserModelBase {
     String? name,
     String? phone,
     String? profileImage,
+    AddressModel? address,
     List<String>? recentlyViewedItems,
   }) {
     return UserModel(
@@ -49,6 +54,7 @@ class UserModel extends UserModelBase {
       name: name ?? this.name,
       phone: phone ?? this.phone,
       profileImage: profileImage ?? this.profileImage,
+      address: address ?? this.address,
       recentlyViewedItems: recentlyViewedItems ?? this.recentlyViewedItems,
     );
   }
