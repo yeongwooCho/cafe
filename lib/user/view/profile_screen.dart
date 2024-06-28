@@ -49,6 +49,22 @@ class ProfileScreen extends ConsumerWidget {
             ),
             renderIconAndTextButton(
               icon: PhosphorIcon(
+                PhosphorIcons.shoppingBagOpen(),
+                size: 28.0,
+              ),
+              title: '주문내역',
+              onTap: () {},
+            ),
+            renderIconAndTextButton(
+              icon: PhosphorIcon(
+                PhosphorIcons.basket(),
+                size: 28.0,
+              ),
+              title: '내 상품',
+              onTap: () {},
+            ),
+            renderIconAndTextButton(
+              icon: PhosphorIcon(
                 PhosphorIcons.signOut(),
                 size: 28.0,
               ),
