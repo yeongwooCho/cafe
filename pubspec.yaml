@@ -104,6 +104,15 @@ flutter:
     - asset/img/banner/
     - asset/img/payment/
     - asset/img/personal_training/
+    - asset/img/product/
+    - asset/img/product/0/
+    - asset/img/product/1/
+    - asset/img/product/2/
+    - asset/img/product/3/
+    - asset/img/product/4/
+    - asset/img/product/5/
+    - asset/img/product/6/
+    - asset/img/product/7/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
