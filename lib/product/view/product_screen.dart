@@ -17,7 +17,7 @@ class ProductScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final productPrefer = ref.watch(productPreferProvider);
+    final products = ref.watch(productProvider);
 
     return DefaultLayout(
       appbar: const DefaultAppBar(title: '중고거래'),
@@ -27,24 +27,24 @@ class ProductScreen extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.asset(ImagePath.productBanner),
-            const SizedBox(height: 60.0),
+            const SizedBox(height: 40.0),
             const CategoryContainer(),
             const SizedBox(height: 40.0),
             _TitleAndHorizontalItemList(
               title: '현재 HOT한 상품 TOP7',
-              products: productPrefer,
+              products: products.sublist(0, 7),
             ),
             _TitleAndHorizontalItemList(
               title: '신상품',
-              products: productPrefer,
+              products: products.sublist(7, 12),
             ),
             _TitleAndHorizontalItemList(
               title: '인기 국산기구',
-              products: productPrefer,
+              products: products.sublist(12, 17),
             ),
             _TitleAndHorizontalItemList(
               title: '인기 외산기구',
-              products: productPrefer,
+              products: products.sublist(17, 22),
             ),
           ],
         ),
