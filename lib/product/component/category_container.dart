@@ -1,4 +1,6 @@
+import 'package:cafe/product/view/product_full_list_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../common/const/colors.dart';
 import '../../common/const/text_styles.dart';
@@ -24,14 +26,18 @@ class CategoryContainer extends StatelessWidget {
                 leftTitle: '국산',
                 rightTitle: '기구',
                 description: '판매',
-                onTap: () {},
+                onTap: () {
+                  context.pushNamed(ProductFullListScreen.routeName);
+                },
               ),
               const SizedBox(width: 8.0),
               _CategoryButton(
                 leftTitle: '국산',
                 rightTitle: '기구',
                 description: '구매',
-                onTap: () {},
+                onTap: () {
+                  context.pushNamed(ProductFullListScreen.routeName);
+                },
               ),
             ],
           ),
@@ -42,14 +48,18 @@ class CategoryContainer extends StatelessWidget {
                 leftTitle: '외산',
                 rightTitle: '기구',
                 description: '판매',
-                onTap: () {},
+                onTap: () {
+                  context.pushNamed(ProductFullListScreen.routeName);
+                },
               ),
               const SizedBox(width: 8.0),
               _CategoryButton(
                 leftTitle: '외산',
                 rightTitle: '기구',
                 description: '구매',
-                onTap: () {},
+                onTap: () {
+                  context.pushNamed(ProductFullListScreen.routeName);
+                },
               ),
             ],
           ),
