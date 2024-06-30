@@ -31,7 +31,7 @@ class HorizontalItemList extends StatelessWidget {
 
           return GestureDetector(
             onTap: () {
-              context.goNamed(
+              context.pushNamed(
                 ProductDetailScreen.routeName,
                 pathParameters: {'id': product.id.toString()},
               );
