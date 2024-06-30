@@ -19,7 +19,8 @@ class VerticalItemList extends StatelessWidget {
     return DefaultLayout(
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 24.0),
+        padding: const EdgeInsets.only(
+            top: 8.0, bottom: 40.0, right: 16.0, left: 16.0),
         shrinkWrap: true,
         itemBuilder: (BuildContext context, int index) {
           final pt = pts[index];
