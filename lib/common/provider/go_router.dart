@@ -10,6 +10,7 @@ import '../../home/view/home_screen.dart';
 import '../../notification/view/notification_detail_screen.dart';
 import '../../notification/view/notification_screen.dart';
 import '../../product/view/product_detail_screen.dart';
+import '../../product/view/product_full_list_screen.dart';
 import '../../product/view/product_screen.dart';
 import '../../user/view/certification_screen.dart';
 import '../../user/view/custom_sns_screen.dart';
@@ -107,6 +108,12 @@ List<RouteBase> get routes => [
                 name: ProductScreen.routeName,
                 builder: (context, state) => ProductScreen(),
                 routes: [
+                  GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
+                    path: 'full_list',
+                    name: ProductFullListScreen.routeName,
+                    builder: (context, state) => ProductFullListScreen(),
+                  ),
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,
                     path: ':id',
@@ -246,4 +253,27 @@ List<RouteBase> get routes => [
           ),
         ],
       ),
+      // GoRoute(
+      //   parentNavigatorKey: _rootNavigatorKey,
+      //   path: '/create_order',
+      //   name: CreateOrderScreen.routeName,
+      //   builder: (context, state) => CreateOrderScreen(),
+      // ),
+      // GoRoute(
+      //   parentNavigatorKey: _rootNavigatorKey,
+      //   path: '/order_list',
+      //   name: OrderListScreen.routeName,
+      //   builder: (context, state) => OrderListScreen(),
+      //   routes: [
+      //     GoRoute(
+      //       parentNavigatorKey: _rootNavigatorKey,
+      //       path: ':id',
+      //       name: OrderDetailScreen.routeName,
+      //       builder: (context, state) {
+      //         String id = state.pathParameters['id']!;
+      //         return OrderDetailScreen(id: id);
+      //       },
+      //     ),
+      //   ],
+      // ),
     ];

@@ -1,15 +1,10 @@
-import 'package:badges/badges.dart' as badges;
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 import 'package:hidable/hidable.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
-import '../../common/cart/provider/cart_provider.dart';
-import '../../common/cart/view/cart_screen.dart';
 import '../../common/component/default_button.dart';
 import '../../common/component/divider_container.dart';
-import '../../common/component/show/show_component_modal_bottom_sheet.dart';
 import '../../common/const/colors.dart';
 import '../../common/const/text_styles.dart';
 import '../../common/layout/default_app_bar.dart';
@@ -17,7 +12,6 @@ import '../../common/layout/default_layout.dart';
 import '../../common/utils/data_utils.dart';
 import '../../user/model/user_model.dart';
 import '../component/horizontal_item_list.dart';
-import '../component/purchase_modal_bottom_sheet.dart';
 import '../component/rating_container.dart';
 import '../model/product_model.dart';
 import '../provider/product_provider.dart';
@@ -48,40 +42,12 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
     final fullWidth = MediaQuery.of(context).size.width;
     final safeTopPadding = MediaQuery.of(context).padding.top;
 
-    final carts = ref.watch(cartProvider);
-
     return DefaultLayout(
       appbar: Hidable(
         preferredWidgetSize:
             Size.fromHeight(DefaultAppBar.defaultAppBarHeight + safeTopPadding),
         controller: scrollController,
-        child: DefaultAppBar(
-          title: '',
-          action: [
-            Padding(
-              padding: const EdgeInsets.only(right: 8.0),
-              child: IconButton(
-                onPressed: () {
-                  context.pushNamed(CartScreen.routeName);
-                },
-                icon: badges.Badge(
-                  showBadge: carts.isNotEmpty,
-                  badgeContent: Text(
-                    carts.length.toString(),
-                    style: MyTextStyle.minimumRegular.copyWith(
-                      color: MyColor.white,
-                      height: 1.0,
-                    ),
-                  ),
-                  child: PhosphorIcon(
-                    PhosphorIcons.shoppingCart(),
-                    size: 28.0,
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
+        child: const DefaultAppBar(title: ''),
       ),
       bottomNavigationBar: Hidable(
         controller: scrollController,
@@ -121,14 +87,7 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
               const SizedBox(width: 8.0),
               Expanded(
                 child: PrimaryButton(
-                  onPressed: () {
-                    showCustomModalBottomSheet(
-                      context: context,
-                      bottomSheetWidget: PurchaseModalBottomSheet(
-                        product: product,
-                      ),
-                    );
-                  },
+                  onPressed: () {},
                   child: const Text('구매하기'),
                 ),
               ),

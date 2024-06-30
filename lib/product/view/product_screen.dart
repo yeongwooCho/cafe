@@ -1,13 +1,7 @@
-import 'package:badges/badges.dart' as badges;
-import 'package:cafe/common/const/colors.dart';
 import 'package:cafe/common/const/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
-import 'package:phosphor_flutter/phosphor_flutter.dart';
 
-import '../../common/cart/provider/cart_provider.dart';
-import '../../common/cart/view/cart_screen.dart';
 import '../../common/const/image_path.dart';
 import '../../common/layout/default_app_bar.dart';
 import '../../common/layout/default_layout.dart';
@@ -24,36 +18,9 @@ class ProductScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final productPrefer = ref.watch(productPreferProvider);
-    final carts = ref.watch(cartProvider);
 
     return DefaultLayout(
-      appbar: DefaultAppBar(
-        title: '중고거래',
-        action: [
-          Padding(
-            padding: const EdgeInsets.only(right: 8.0),
-            child: IconButton(
-              onPressed: () {
-                context.pushNamed(CartScreen.routeName);
-              },
-              icon: badges.Badge(
-                showBadge: carts.isNotEmpty,
-                badgeContent: Text(
-                  carts.length.toString(),
-                  style: MyTextStyle.minimumRegular.copyWith(
-                    color: MyColor.white,
-                    height: 1.0,
-                  ),
-                ),
-                child: PhosphorIcon(
-                  PhosphorIcons.shoppingCart(),
-                  size: 28.0,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+      appbar: const DefaultAppBar(title: '중고거래'),
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
