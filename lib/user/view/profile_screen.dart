@@ -1,3 +1,4 @@
+import 'package:cafe/order/view/order_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -53,7 +54,9 @@ class ProfileScreen extends ConsumerWidget {
                 size: 28.0,
               ),
               title: '주문내역',
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(OrderListScreen.routeName);
+              },
             ),
             renderIconAndTextButton(
               icon: PhosphorIcon(
