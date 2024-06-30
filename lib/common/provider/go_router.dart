@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import '../../home/view/home_screen.dart';
 import '../../notification/view/notification_detail_screen.dart';
 import '../../notification/view/notification_screen.dart';
+import '../../order/view/create_order_screen.dart';
 import '../../product/view/product_detail_screen.dart';
 import '../../product/view/product_full_list_screen.dart';
 import '../../product/view/product_screen.dart';
@@ -253,12 +254,12 @@ List<RouteBase> get routes => [
           ),
         ],
       ),
-      // GoRoute(
-      //   parentNavigatorKey: _rootNavigatorKey,
-      //   path: '/create_order',
-      //   name: CreateOrderScreen.routeName,
-      //   builder: (context, state) => CreateOrderScreen(),
-      // ),
+      GoRoute(
+        parentNavigatorKey: _rootNavigatorKey,
+        path: '/create_order',
+        name: CreateOrderScreen.routeName,
+        builder: (context, state) => CreateOrderScreen(),
+      ),
       // GoRoute(
       //   parentNavigatorKey: _rootNavigatorKey,
       //   path: '/order_list',

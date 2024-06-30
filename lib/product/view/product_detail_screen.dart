@@ -1,5 +1,8 @@
+import 'package:cafe/cart/provider/cart_provider.dart';
+import 'package:cafe/order/view/create_order_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hidable/hidable.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 
@@ -87,7 +90,15 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
               const SizedBox(width: 8.0),
               Expanded(
                 child: PrimaryButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    ref.read(cartProvider.notifier).removeAll();
+
+                    ref
+                        .read(cartProvider.notifier)
+                        .addProduct(product: product, amount: 1);
+
+                    context.pushNamed(CreateOrderScreen.routeName);
+                  },
                   child: const Text('구매하기'),
                 ),
               ),
