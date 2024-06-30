@@ -1,3 +1,7 @@
+import 'package:cafe/personal_training/provider/personal_training_provider.dart';
+import 'package:cafe/product/component/category_container.dart';
+import 'package:cafe/product/component/horizontal_item_list.dart';
+import 'package:cafe/product/provider/product_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -10,6 +14,7 @@ import '../../common/const/text_styles.dart';
 import '../../common/layout/default_app_bar.dart';
 import '../../common/layout/default_layout.dart';
 import '../../notification/view/notification_screen.dart';
+import '../../personal_training/component/horizontal_page_view.dart';
 
 class HomeScreen extends ConsumerWidget {
   static String get routeName => "home";
@@ -18,6 +23,9 @@ class HomeScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    final pts = ref.watch(personalTrainingProvider);
+    final products = ref.watch(productPreferProvider);
+
     return DefaultLayout(
       appbar: DefaultAppBar(
         title: '',
@@ -48,7 +56,24 @@ class HomeScreen extends ConsumerWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Image.asset(ImagePath.homeBanner),
-            const SizedBox(height: 60.0),
+            const SizedBox(height: 40.0),
+            CategoryContainer(),
+            const SizedBox(height: 40.0),
+            HorizontalPageView(
+              title: '추천 PT샵',
+              pts: pts,
+            ),
+            const SizedBox(height: 40.0),
+            const Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24.0),
+              child: Text(
+                '최근 본 상품',
+                style: MyTextStyle.bodyTitleMedium,
+              ),
+            ),
+            const SizedBox(height: 8.0),
+            HorizontalItemList(products: products),
+            const SizedBox(height: 40.0),
             const _Footer(),
           ],
         ),
@@ -67,6 +92,7 @@ class _Footer extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(24.0),
         child: ListView.separated(
+          physics: const NeverScrollableScrollPhysics(),
           shrinkWrap: true,
           itemBuilder: (BuildContext context, int index) {
             final title = footerData[index];
