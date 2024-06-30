@@ -4,6 +4,7 @@ import 'package:cafe/personal_training/view/personal_training_detail_screen.dart
 import 'package:cafe/personal_training/view/personal_training_list_screen.dart';
 import 'package:cafe/personal_training/view/personal_training_screen.dart';
 import 'package:cafe/personal_training/view/request_consultation_screen.dart';
+import 'package:cafe/product/view/my_product_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -151,6 +152,12 @@ List<RouteBase> get routes => [
                     path: 'edit',
                     name: EditProfileScreen.routeName,
                     builder: (context, state) => EditProfileScreen(),
+                  ),
+                  GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
+                    path: 'my_product_list',
+                    name: MyProductListScreen.routeName,
+                    builder: (context, state) => MyProductListScreen(),
                   ),
                 ],
               ),

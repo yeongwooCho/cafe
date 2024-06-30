@@ -1,4 +1,5 @@
 import 'package:cafe/order/view/order_list_screen.dart';
+import 'package:cafe/product/view/my_product_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -64,7 +65,9 @@ class ProfileScreen extends ConsumerWidget {
                 size: 28.0,
               ),
               title: '내 상품',
-              onTap: () {},
+              onTap: () {
+                context.pushNamed(MyProductListScreen.routeName);
+              },
             ),
             renderIconAndTextButton(
               icon: PhosphorIcon(
