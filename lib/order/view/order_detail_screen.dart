@@ -89,7 +89,7 @@ class _OrderDetailScreenState extends ConsumerState<OrderDetailScreen> {
         children: [
           const Text(
             '주문 정보',
-            style: MyTextStyle.bigTitleMedium,
+            style: MyTextStyle.bodyTitleMedium,
           ),
           const SizedBox(height: 20.0),
           _renderTitleAndDescription(
@@ -119,12 +119,6 @@ class _OrderDetailScreenState extends ConsumerState<OrderDetailScreen> {
             title: '상품 금액',
             description: '${DataUtils.convertPriceToMoneyString(
               price: productPrice,
-            )} 원',
-          ),
-          _renderTitleAndDescription(
-            title: '할인 금액',
-            description: '${DataUtils.convertPriceToMoneyString(
-              price: discountPrice,
             )} 원',
           ),
           _renderTitleAndDescription(
@@ -172,7 +166,7 @@ class _OrderDetailScreenState extends ConsumerState<OrderDetailScreen> {
         children: [
           const Text(
             '상품 정보',
-            style: MyTextStyle.bigTitleMedium,
+            style: MyTextStyle.bodyTitleMedium,
           ),
           const SizedBox(height: 20.0),
           ...carts.map((e) => Padding(
@@ -205,7 +199,7 @@ class _OrderDetailScreenState extends ConsumerState<OrderDetailScreen> {
               children: [
                 const Text(
                   '배송 정보',
-                  style: MyTextStyle.bigTitleMedium,
+                  style: MyTextStyle.bodyTitleMedium,
                 ),
                 PhosphorIcon(
                   isSelected
@@ -264,7 +258,7 @@ class _OrderDetailScreenState extends ConsumerState<OrderDetailScreen> {
               children: [
                 const Text(
                   '결제 정보',
-                  style: MyTextStyle.bigTitleMedium,
+                  style: MyTextStyle.bodyTitleMedium,
                 ),
                 PhosphorIcon(
                   isSelected
