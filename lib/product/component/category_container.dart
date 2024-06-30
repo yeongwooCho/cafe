@@ -1,4 +1,4 @@
-import 'package:cafe/product/provider/category_provider.dart';
+import 'package:cafe/product/provider/product_category_provider.dart';
 import 'package:cafe/product/view/product_full_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -30,8 +30,8 @@ class CategoryContainer extends ConsumerWidget {
                 description: '판매',
                 onTap: () {
                   ref
-                      .read(categorySelectedProvider.notifier)
-                      .update((state) => CategoryStatus.domesticSales);
+                      .read(productCategorySelectedProvider.notifier)
+                      .update((state) => ProductCategoryStatus.domesticSales);
                   context.pushNamed(ProductFullListScreen.routeName);
                 },
               ),
@@ -42,8 +42,8 @@ class CategoryContainer extends ConsumerWidget {
                 description: '구매',
                 onTap: () {
                   ref
-                      .read(categorySelectedProvider.notifier)
-                      .update((state) => CategoryStatus.domesticPurchase);
+                      .read(productCategorySelectedProvider.notifier)
+                      .update((state) => ProductCategoryStatus.domesticPurchase);
                   context.pushNamed(ProductFullListScreen.routeName);
                 },
               ),
@@ -58,8 +58,8 @@ class CategoryContainer extends ConsumerWidget {
                 description: '판매',
                 onTap: () {
                   ref
-                      .read(categorySelectedProvider.notifier)
-                      .update((state) => CategoryStatus.foreignSales);
+                      .read(productCategorySelectedProvider.notifier)
+                      .update((state) => ProductCategoryStatus.foreignSales);
                   context.pushNamed(ProductFullListScreen.routeName);
                 },
               ),
@@ -70,8 +70,8 @@ class CategoryContainer extends ConsumerWidget {
                 description: '구매',
                 onTap: () {
                   ref
-                      .read(categorySelectedProvider.notifier)
-                      .update((state) => CategoryStatus.foreignPurchase);
+                      .read(productCategorySelectedProvider.notifier)
+                      .update((state) => ProductCategoryStatus.foreignPurchase);
                   context.pushNamed(ProductFullListScreen.routeName);
                 },
               ),

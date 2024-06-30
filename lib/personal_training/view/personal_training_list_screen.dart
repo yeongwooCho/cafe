@@ -1,3 +1,4 @@
+import 'package:cafe/common/component/horizontal_button_list.dart';
 import 'package:cafe/personal_training/provider/personal_training_provider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -25,6 +26,12 @@ class PersonalTrainingListScreen extends ConsumerWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            HorizontalButtonList(buttons: [
+              HorizontalButtonModel(
+                title: 'afsd',
+                onTap: () {},
+              ),
+            ]),
             const DividerContainer(),
             const DividerContainer(),
           ],

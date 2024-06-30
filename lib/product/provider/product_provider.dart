@@ -4,11 +4,11 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../common/utils/data_utils.dart';
 import '../model/product_model.dart';
-import 'category_provider.dart';
+import 'product_category_provider.dart';
 
 final productRandomProvider = Provider<List<ProductModel>>((ref) {
   final products = ref.watch(productProvider);
-  final selectedCategory = ref.watch(categorySelectedProvider);
+  final selectedCategory = ref.watch(productCategorySelectedProvider);
 
   final randomProducts =
       DataUtils.getRandomShuffledList<ProductModel>(products);

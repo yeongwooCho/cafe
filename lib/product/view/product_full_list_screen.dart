@@ -6,7 +6,7 @@ import '../../common/const/text_styles.dart';
 import '../../common/layout/default_app_bar.dart';
 import '../../common/layout/default_layout.dart';
 import '../component/vertical_item_grid.dart';
-import '../provider/category_provider.dart';
+import '../provider/product_category_provider.dart';
 import '../provider/product_provider.dart';
 
 class ProductFullListScreen extends ConsumerWidget {
@@ -17,8 +17,8 @@ class ProductFullListScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final products = ref.watch(productProvider);
-    final categories = ref.watch(categoriesProvider);
-    final selectedCategory = ref.watch(categorySelectedProvider);
+    final categories = ref.watch(productCategoriesProvider);
+    final selectedCategory = ref.watch(productCategorySelectedProvider);
     final randomProducts = ref.watch(productRandomProvider);
 
     return DefaultLayout(
@@ -48,7 +48,7 @@ class ProductFullListScreen extends ConsumerWidget {
                   ),
                   child: InkWell(
                     onTap: () {
-                      ref.read(categorySelectedProvider.notifier).state =
+                      ref.read(productCategorySelectedProvider.notifier).state =
                           category;
                     },
                     child: Padding(
