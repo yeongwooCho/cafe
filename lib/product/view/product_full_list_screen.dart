@@ -57,7 +57,7 @@ class ProductFullListScreen extends ConsumerWidget {
                         vertical: 8.0,
                       ),
                       child: Text(
-                        category,
+                        category.label,
                         style: MyTextStyle.bodyRegular.copyWith(
                           color: selectedCategory == category
                               ? MyColor.white

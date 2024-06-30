@@ -1,15 +1,17 @@
+import 'package:cafe/product/provider/category_provider.dart';
 import 'package:cafe/product/view/product_full_list_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../common/const/colors.dart';
 import '../../common/const/text_styles.dart';
 
-class CategoryContainer extends StatelessWidget {
+class CategoryContainer extends ConsumerWidget {
   const CategoryContainer({super.key});
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 24.0),
       child: Column(
@@ -27,6 +29,9 @@ class CategoryContainer extends StatelessWidget {
                 rightTitle: '기구',
                 description: '판매',
                 onTap: () {
+                  ref
+                      .read(categorySelectedProvider.notifier)
+                      .update((state) => CategoryStatus.domesticSales);
                   context.pushNamed(ProductFullListScreen.routeName);
                 },
               ),
@@ -36,6 +41,9 @@ class CategoryContainer extends StatelessWidget {
                 rightTitle: '기구',
                 description: '구매',
                 onTap: () {
+                  ref
+                      .read(categorySelectedProvider.notifier)
+                      .update((state) => CategoryStatus.domesticPurchase);
                   context.pushNamed(ProductFullListScreen.routeName);
                 },
               ),
@@ -49,6 +57,9 @@ class CategoryContainer extends StatelessWidget {
                 rightTitle: '기구',
                 description: '판매',
                 onTap: () {
+                  ref
+                      .read(categorySelectedProvider.notifier)
+                      .update((state) => CategoryStatus.foreignSales);
                   context.pushNamed(ProductFullListScreen.routeName);
                 },
               ),
@@ -58,6 +69,9 @@ class CategoryContainer extends StatelessWidget {
                 rightTitle: '기구',
                 description: '구매',
                 onTap: () {
+                  ref
+                      .read(categorySelectedProvider.notifier)
+                      .update((state) => CategoryStatus.foreignPurchase);
                   context.pushNamed(ProductFullListScreen.routeName);
                 },
               ),
