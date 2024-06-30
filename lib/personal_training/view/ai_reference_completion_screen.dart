@@ -49,22 +49,22 @@ class AIReferenceCompletionScreen extends ConsumerWidget {
             const SizedBox(height: 40.0),
             HorizontalPageView(
               title: '종합 추천',
-              pts: pts,
+              pts: pts.sublist(0, 4),
             ),
             const SizedBox(height: 40.0),
             HorizontalPageView(
               title: '수익률 기준 추천',
-              pts: pts,
+              pts: pts.sublist(4, 6),
             ),
             const SizedBox(height: 40.0),
             HorizontalPageView(
               title: '위치 기준 추천',
-              pts: pts,
+              pts: pts.sublist(6, 8),
             ),
             const SizedBox(height: 40.0),
             HorizontalPageView(
               title: '손익 분기점 기준 추천',
-              pts: pts,
+              pts: pts.sublist(7, 9),
             ),
             const SizedBox(height: 40.0),
           ],
