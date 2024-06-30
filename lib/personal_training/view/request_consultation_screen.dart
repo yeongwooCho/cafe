@@ -23,6 +23,7 @@ class RequestConsultationScreen extends ConsumerStatefulWidget {
 
 class _RequestConsultationScreenState
     extends ConsumerState<RequestConsultationScreen> {
+  bool isLoading = false;
   DateTime selectedDate = DateTime(
     DateTime.now().year,
     DateTime.now().month,
@@ -57,6 +58,7 @@ class _RequestConsultationScreenState
   @override
   Widget build(BuildContext context) {
     return DefaultLayout(
+      isLoading: isLoading,
       appbar: const DefaultAppBar(title: '상담 예약'),
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
@@ -180,7 +182,14 @@ class _RequestConsultationScreenState
                     ),
                     const SizedBox(height: 40.0),
                     PrimaryButton(
-                      onPressed: () {
+                      onPressed: () async {
+                        setState(() {
+                          isLoading = true;
+                        });
+                        await Future.delayed(const Duration(seconds: 1));
+                        setState(() {
+                          isLoading = false;
+                        });
                         context.goNamed(
                           CompletionScreen.routeName,
                           pathParameters: {'title': '상담 요청이\n정상적으로\n완료되었습니다.'},
