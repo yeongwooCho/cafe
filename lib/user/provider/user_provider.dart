@@ -53,6 +53,8 @@ class UserStateNotifier extends StateNotifier<UserModelBase> {
       id: 0,
       email: 'fitness0701@naver.com',
       username: 'fitness0701',
+      nickname: '다팔거야',
+      grade: '골드',
       password: 'fitness0701',
       name: '김고호',
       phone: '01012341234',

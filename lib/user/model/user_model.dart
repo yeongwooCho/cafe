@@ -16,6 +16,8 @@ class UserModel extends UserModelBase {
   final int id; // primary key
   final String email;
   final String username;
+  final String nickname;
+  final String grade;
   final String password;
   final String name;
   final String phone;
@@ -27,6 +29,8 @@ class UserModel extends UserModelBase {
     required this.id,
     required this.email,
     required this.username,
+    required this.nickname,
+    required this.grade,
     required this.password,
     required this.name,
     required this.phone,
@@ -39,6 +43,8 @@ class UserModel extends UserModelBase {
     int? id,
     String? email,
     String? username,
+    String? nickname,
+    String? grade,
     String? password,
     String? name,
     String? phone,
@@ -50,6 +56,8 @@ class UserModel extends UserModelBase {
       id: id ?? this.id,
       email: email ?? this.email,
       username: username ?? this.username,
+      nickname: nickname ?? this.nickname,
+      grade: grade ?? this.grade,
       password: password ?? this.password,
       name: name ?? this.name,
       phone: phone ?? this.phone,
