@@ -104,14 +104,15 @@ class PersonalTrainingCard extends StatelessWidget {
                     children: [
                       Text(
                         title,
-                        style: MyTextStyle.bodyBold,
+                        style: MyTextStyle.bodyTitleMedium,
                       ),
+                      const SizedBox(height: 8.0),
                       Text(
                         description,
                         style: MyTextStyle.bodyRegular,
                         overflow: isDetail ? null : TextOverflow.ellipsis,
                       ),
-                      const SizedBox(height: 8.0),
+                      const SizedBox(height: 12.0),
                       _DescriptionContainer(
                         ratingPoint: ratingPoint,
                         ratingCount: ratingCount,

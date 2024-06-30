@@ -29,7 +29,7 @@ class HorizontalPageView extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 360.0,
+          height: 370.0,
           child: PageView.builder(
             controller: PageController(viewportFraction: 0.9),
             physics: const BouncingScrollPhysics(),

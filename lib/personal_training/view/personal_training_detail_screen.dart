@@ -121,7 +121,7 @@ class PersonalTrainingDetailScreen extends ConsumerWidget {
                     children: pt.detailImages
                         .map(
                           (e) => Image.asset(e,
-                              fit: BoxFit.fill,
+                              fit: BoxFit.fitHeight,
                               width: imageWidth,
                               height: imageWidth),
                         )
