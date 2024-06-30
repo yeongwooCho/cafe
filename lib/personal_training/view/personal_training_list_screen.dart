@@ -1,4 +1,6 @@
+import 'package:cafe/personal_training/component/vertical_item_list.dart';
 import 'package:cafe/personal_training/provider/personal_training_category_provider.dart';
+import 'package:cafe/personal_training/provider/personal_training_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -14,11 +16,11 @@ class PersonalTrainingListScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    // final products = ref.watch(productProvider);
+    final pts = ref.watch(personalTrainingProvider);
+    // final randomProducts = ref.watch(productRandomProvider);
     final categories = ref.watch(personalTrainingCategoriesProvider);
     final selectedCategory =
         ref.watch(personalTrainingCategorySelectedProvider);
-    // final randomProducts = ref.watch(productRandomProvider);
 
     return DefaultLayout(
       appbar: const DefaultAppBar(title: 'PT샵 리스트'),
@@ -74,6 +76,9 @@ class PersonalTrainingListScreen extends ConsumerWidget {
               },
               itemCount: categories.length,
             ),
+          ),
+          Expanded(
+            child: VerticalItemList(pts: pts),
           ),
         ],
       ),
