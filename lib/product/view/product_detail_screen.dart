@@ -9,6 +9,7 @@ import '../../common/cart/provider/cart_provider.dart';
 import '../../common/cart/view/cart_screen.dart';
 import '../../common/component/default_button.dart';
 import '../../common/component/divider_container.dart';
+import '../../common/component/show/show_component_modal_bottom_sheet.dart';
 import '../../common/const/colors.dart';
 import '../../common/const/text_styles.dart';
 import '../../common/layout/default_app_bar.dart';
@@ -16,6 +17,7 @@ import '../../common/layout/default_layout.dart';
 import '../../common/utils/data_utils.dart';
 import '../../user/model/user_model.dart';
 import '../component/horizontal_item_list.dart';
+import '../component/purchase_modal_bottom_sheet.dart';
 import '../component/rating_container.dart';
 import '../model/product_model.dart';
 import '../provider/product_provider.dart';
@@ -120,12 +122,12 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
               Expanded(
                 child: PrimaryButton(
                   onPressed: () {
-                    // showCustomModalBottomSheet(
-                    //   context: context,
-                    //   bottomSheetWidget: PurchaseModalBottomSheet(
-                    //     product: product,
-                    //   ),
-                    // );
+                    showCustomModalBottomSheet(
+                      context: context,
+                      bottomSheetWidget: PurchaseModalBottomSheet(
+                        product: product,
+                      ),
+                    );
                   },
                   child: const Text('구매하기'),
                 ),
