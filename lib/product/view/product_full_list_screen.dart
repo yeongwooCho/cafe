@@ -75,7 +75,7 @@ class ProductFullListScreen extends ConsumerWidget {
             ),
           ),
           Expanded(
-            child: VerticalItemList(
+            child: VerticalItemGrid(
               products: selectedCategory == categories.first
                   ? products
                   : randomProducts,

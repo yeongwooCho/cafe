@@ -10,10 +10,10 @@ import '../model/product_model.dart';
 import '../provider/product_provider.dart';
 import '../view/product_detail_screen.dart';
 
-class VerticalItemList extends ConsumerWidget {
+class VerticalItemGrid extends ConsumerWidget {
   final List<ProductModel> products;
 
-  const VerticalItemList({
+  const VerticalItemGrid({
     super.key,
     required this.products,
   });
