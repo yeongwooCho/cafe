@@ -113,6 +113,20 @@ flutter:
     - asset/img/product/5/
     - asset/img/product/6/
     - asset/img/product/7/
+    - asset/img/product/8/
+    - asset/img/product/9/
+    - asset/img/product/10/
+    - asset/img/product/11/
+    - asset/img/product/12/
+    - asset/img/product/13/
+    - asset/img/product/14/
+    - asset/img/product/15/
+    - asset/img/product/16/
+    - asset/img/product/17/
+    - asset/img/product/18/
+    - asset/img/product/19/
+    - asset/img/product/20/
+    - asset/img/product/21/
 
 
   # An image asset can refer to one or more resolution-specific "variants", see
