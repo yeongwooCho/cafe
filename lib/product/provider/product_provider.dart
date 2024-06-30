@@ -100,8 +100,10 @@ class ProductStateNotifier extends StateNotifier<List<ProductModel>> {
         ],
         isLike: false,
         user: user,
-        likes: 122 - index,
-        createdAt: createdAt.subtract(Duration(days: index + 1)),
+        likes: DataUtils.getRandomDouble(min: 243.0, range: 500).toInt(),
+        createdAt: createdAt.subtract(Duration(
+          days: DataUtils.getRandomDouble(min: 1.0, range: 10).toInt(),
+        )),
       ),
     );
   }

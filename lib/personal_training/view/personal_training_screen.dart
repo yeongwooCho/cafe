@@ -55,12 +55,12 @@ class PersonalTrainingScreen extends ConsumerWidget {
             const SizedBox(height: 40.0),
             HorizontalPageView(
               title: '서울시 인근 추천',
-              pts: pts,
+              pts: pts.sublist(5, 9),
             ),
             const SizedBox(height: 40.0),
             HorizontalPageView(
               title: '금주의 신규 매물',
-              pts: pts,
+              pts: pts.sublist(9, 13),
             ),
             const SizedBox(height: 40.0),
           ],

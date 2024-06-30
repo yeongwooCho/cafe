@@ -61,7 +61,7 @@ class HomeScreen extends ConsumerWidget {
             const SizedBox(height: 40.0),
             HorizontalPageView(
               title: '추천 PT샵',
-              pts: pts,
+              pts: pts.sublist(0, 5),
             ),
             const SizedBox(height: 40.0),
             const Padding(
