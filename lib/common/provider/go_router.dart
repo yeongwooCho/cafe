@@ -1,6 +1,7 @@
 import 'package:cafe/personal_training/view/ai_reference_completion_screen.dart';
 import 'package:cafe/personal_training/view/ai_reference_screen.dart';
 import 'package:cafe/personal_training/view/personal_training_detail_screen.dart';
+import 'package:cafe/personal_training/view/personal_training_list_screen.dart';
 import 'package:cafe/personal_training/view/personal_training_screen.dart';
 import 'package:cafe/personal_training/view/request_consultation_screen.dart';
 import 'package:flutter/material.dart';
@@ -90,6 +91,12 @@ List<RouteBase> get routes => [
                         ]
                       ),
                     ],
+                  ),
+                  GoRoute(
+                    parentNavigatorKey: _rootNavigatorKey,
+                    path: "list",
+                    name: PersonalTrainingListScreen.routeName,
+                    builder: (context, state) => PersonalTrainingListScreen(),
                   ),
                   GoRoute(
                     parentNavigatorKey: _rootNavigatorKey,

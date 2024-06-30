@@ -2,6 +2,7 @@ import 'package:cafe/common/const/colors.dart';
 import 'package:cafe/common/const/text_styles.dart';
 import 'package:cafe/personal_training/component/horizontal_page_view.dart';
 import 'package:cafe/personal_training/view/ai_reference_screen.dart';
+import 'package:cafe/personal_training/view/personal_training_list_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -36,7 +37,9 @@ class PersonalTrainingScreen extends ConsumerWidget {
                   _renderContainerButton(
                     topOfTitle: '전체보기',
                     downOfTitle: 'PT샵',
-                    onTap: () {},
+                    onTap: () {
+                      context.goNamed(PersonalTrainingListScreen.routeName);
+                    },
                   ),
                   const SizedBox(width: 8.0),
                   _renderContainerButton(
