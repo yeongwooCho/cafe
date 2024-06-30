@@ -1,3 +1,4 @@
+import 'package:cafe/common/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -8,6 +9,13 @@ import 'common/provider/go_router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  SystemChrome.setSystemUIOverlayStyle(
+    const SystemUiOverlayStyle(
+      statusBarColor: MyColor.white,
+      statusBarIconBrightness: Brightness.dark,
+    ),
+  );
 
   // intl 패키지의 initializeDateFormatting 함수를 비동기적으로 호출
   // 다양한 언어와 지역 설정에 맞는 날짜 형식 데이터를 초기화
