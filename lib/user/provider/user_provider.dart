@@ -1,3 +1,4 @@
+import 'package:cafe/common/const/data.dart';
 import 'package:cafe/user/model/address_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -51,19 +52,19 @@ class UserStateNotifier extends StateNotifier<UserModelBase> {
   void initItems() {
     state = UserModel(
       id: 0,
-      email: 'fitness0701@naver.com',
-      username: 'fitness0701',
+      email: userEmail,
+      username: 'dhkfkfl',
       nickname: '다팔거야',
       grade: '골드',
       password: 'fitness0701',
       name: '김고호',
-      phone: '01012341234',
+      phone: userPhone,
       profileImage: ImagePath.user,
       recentlyViewedItems: [],
       address: AddressModel(
         id: 1,
         name: '김고호',
-        phone: '010-1234-1234',
+        phone: userPhone,
         address: '서울특별시 종로구 세종대로 172',
         detailAddress: '103동 502호',
         memo: '부재시 경비실에 맡겨주세요.',
