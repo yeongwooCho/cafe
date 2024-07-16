@@ -1,3 +1,4 @@
+import 'package:cafe/common/utils/data_utils.dart';
 import 'package:cafe/personal_training/model/personal_training_model.dart';
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
@@ -14,6 +15,7 @@ class PersonalTrainingCard extends StatelessWidget {
   final int ratingCount;
   final String openingHours;
   final String location;
+  final int price;
 
   final bool isDetail; // 상세 페이지 여부
   final String? heroKey; // 히어로 위젯 키
@@ -28,6 +30,7 @@ class PersonalTrainingCard extends StatelessWidget {
     required this.ratingCount,
     required this.openingHours,
     required this.location,
+    required this.price,
     this.isDetail = false,
     this.heroKey,
   });
@@ -46,6 +49,7 @@ class PersonalTrainingCard extends StatelessWidget {
       ratingCount: model.ratingCount,
       openingHours: model.openingHours,
       location: model.location,
+      price: model.price,
       isDetail: isDetail,
     );
   }
@@ -118,6 +122,7 @@ class PersonalTrainingCard extends StatelessWidget {
                         ratingCount: ratingCount,
                         openingHours: openingHours,
                         location: location,
+                        price: price,
                       ),
                     ],
                   ),
@@ -136,6 +141,7 @@ class _DescriptionContainer extends StatelessWidget {
   final int ratingCount;
   final String openingHours;
   final String location;
+  final int price;
 
   const _DescriptionContainer({
     super.key,
@@ -143,6 +149,7 @@ class _DescriptionContainer extends StatelessWidget {
     required this.ratingCount,
     required this.openingHours,
     required this.location,
+    required this.price,
   });
 
   @override
@@ -167,6 +174,11 @@ class _DescriptionContainer extends StatelessWidget {
         renderIconAndTitle(
           title: location,
           icon: PhosphorIcons.mapPinArea(),
+        ),
+        const SizedBox(height: 4.0),
+        renderIconAndTitle(
+          title: '매도 가격: ${DataUtils.convertPriceToMoneyString(price: price)} 원',
+          icon: PhosphorIcons.currencyKrw(),
         ),
       ],
     );

@@ -16,6 +16,7 @@ class PersonalTrainingDetailModel extends PersonalTrainingModel {
     required super.openingHours,
     required super.location,
     required super.categoryStatus,
+    required super.price,
     required this.shop,
     required this.seller,
     required this.isVisibleSeller,
@@ -30,7 +31,9 @@ class ShopInfo {
   final int premium; // 권리금
   final int deposit; // 보증금
   final int monthlyRent; // 월세
-  final int administrationCost;
+  final int administrationCost; // 관리비
+  final double rateOfReturn; // 수익률
+  // 매매 가격 == 보증금 + 1년 임대료 * (100/수익률)
 
   ShopInfo({
     required this.businessType,
@@ -40,7 +43,8 @@ class ShopInfo {
     required this.deposit,
     required this.monthlyRent,
     required this.administrationCost,
-  }); // 관리비
+    required this.rateOfReturn,
+  });
 }
 
 class SellerInfo {

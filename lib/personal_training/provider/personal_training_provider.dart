@@ -68,6 +68,7 @@ class PersonalTrainingStateNotifier
         ratingCount: DataUtils.getRandomDouble(min: 243.0, range: 500).toInt(),
         openingHours: '11:00 ~ 20:00',
         location: '서울특별시 종로구 세종대로 172',
+        price: 244000000,
         categoryStatus: CategoryStatus.special,
         shop: ShopInfo(
           businessType: '헬스클럽',
@@ -77,6 +78,7 @@ class PersonalTrainingStateNotifier
           deposit: 5000,
           monthlyRent: 400,
           administrationCost: 50,
+          rateOfReturn: 50,
         ),
         seller: SellerInfo(
           name: '헬스클럽',

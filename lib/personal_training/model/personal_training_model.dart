@@ -17,6 +17,7 @@ class PersonalTrainingModel {
   final int ratingCount;
   final String openingHours;
   final String location;
+  final int price;
   final CategoryStatus categoryStatus;
 
   PersonalTrainingModel({
@@ -28,6 +29,7 @@ class PersonalTrainingModel {
     required this.ratingCount,
     required this.openingHours,
     required this.location,
+    required this.price,
     required this.categoryStatus,
   });
 
@@ -40,6 +42,7 @@ class PersonalTrainingModel {
     int? ratingCount,
     String? openingHours,
     String? location,
+    int? price,
     CategoryStatus? categoryStatus,
   }) {
     return PersonalTrainingModel(
@@ -51,6 +54,7 @@ class PersonalTrainingModel {
       ratingCount: ratingCount ?? this.ratingCount,
       openingHours: openingHours ?? this.openingHours,
       location: location ?? this.location,
+      price: price ?? this.price,
       categoryStatus: categoryStatus ?? this.categoryStatus,
     );
   }
