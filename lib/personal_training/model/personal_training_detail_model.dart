@@ -3,6 +3,7 @@ import 'package:cafe/personal_training/model/personal_training_model.dart';
 class PersonalTrainingDetailModel extends PersonalTrainingModel {
   final ShopInfo shop;
   final SellerInfo seller;
+  final bool isVisibleSeller;
   final List<String> detailImages;
 
   PersonalTrainingDetailModel({
@@ -17,6 +18,7 @@ class PersonalTrainingDetailModel extends PersonalTrainingModel {
     required super.categoryStatus,
     required this.shop,
     required this.seller,
+    required this.isVisibleSeller,
     required this.detailImages,
   });
 }

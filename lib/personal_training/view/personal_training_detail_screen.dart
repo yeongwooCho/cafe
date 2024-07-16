@@ -1,9 +1,10 @@
+import 'dart:ui';
+
+import 'package:cafe/common/const/colors.dart';
 import 'package:cafe/common/utils/data_utils.dart';
 import 'package:cafe/personal_training/component/personal_training_card.dart';
 import 'package:cafe/personal_training/provider/personal_training_provider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../common/component/divider_container.dart';
@@ -90,16 +91,55 @@ class PersonalTrainingDetailScreen extends ConsumerWidget {
                     style: MyTextStyle.bodyTitleMedium,
                   ),
                   const SizedBox(height: 8.0),
-                  _renderTitleAndDescription(
-                      title: '명칭', description: pt.seller.name),
-                  _renderTitleAndDescription(
-                      title: '소재지', description: pt.seller.locationOfBuilding),
-                  _renderTitleAndDescription(
-                      title: '등록번호', description: pt.seller.registrationNumber),
-                  _renderTitleAndDescription(
-                      title: '대표자', description: pt.seller.representative),
-                  _renderTitleAndDescription(
-                      title: '연락처', description: pt.seller.contactInfo),
+                  Stack(
+                    children: [
+                      Column(
+                        children: [
+                          _renderTitleAndDescription(
+                              title: '명칭', description: pt.seller.name),
+                          _renderTitleAndDescription(
+                              title: '소재지',
+                              description: pt.seller.locationOfBuilding),
+                          _renderTitleAndDescription(
+                              title: '등록번호',
+                              description: pt.seller.registrationNumber),
+                          _renderTitleAndDescription(
+                              title: '대표자',
+                              description: pt.seller.representative),
+                          _renderTitleAndDescription(
+                              title: '연락처', description: pt.seller.contactInfo),
+                        ],
+                      ),
+                      if (!pt.isVisibleSeller)
+                        Positioned.fill(
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(15),
+                            child: BackdropFilter(
+                              filter:
+                                  ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                              child: Container(
+                                color: Colors.black.withOpacity(0),
+                                child: Center(
+                                  child: Container(
+                                    color: MyColor.white,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                        '판매자에 의해 비공개 되었습니다.',
+                                        style: MyTextStyle.descriptionMedium
+                                            .copyWith(
+                                          color: MyColor.darkGrey,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                    ],
+                  ),
                 ],
               ),
             ),

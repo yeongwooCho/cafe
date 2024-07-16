@@ -92,6 +92,7 @@ class PersonalTrainingStateNotifier
           '${ImagePath.ptDirectory}11.png',
           '${ImagePath.ptDirectory}12.png',
         ],
+        isVisibleSeller: index % 4 != 0,
       ),
     );
   }
