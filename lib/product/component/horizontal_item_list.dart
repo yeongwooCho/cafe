@@ -1,3 +1,4 @@
+import 'package:cafe/common/const/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -17,7 +18,7 @@ class HorizontalItemList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 220.0,
+      height: 260.0,
       child: ListView.separated(
         physics: const BouncingScrollPhysics(),
         shrinkWrap: true,
@@ -53,10 +54,22 @@ class HorizontalItemList extends StatelessWidget {
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
+                  Text(
+                    product.manufacturingCompany,
+                    style: MyTextStyle.minimumRegular.copyWith(
+                      color: MyColor.darkGrey,
+                    ),
+                  ),
                   const SizedBox(height: 4.0),
                   Text(
                     '${DataUtils.convertPriceToMoneyString(price: product.price)} 원',
                     style: MyTextStyle.bodyBold,
+                  ),
+                  Text(
+                    '구매가격 ${DataUtils.convertPriceToMoneyString(price: product.purchasePrice)}',
+                    style: MyTextStyle.minimumRegular.copyWith(
+                      color: MyColor.darkGrey,
+                    ),
                   ),
                 ],
               ),

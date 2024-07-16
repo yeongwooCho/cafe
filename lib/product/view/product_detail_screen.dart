@@ -120,7 +120,13 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
             ),
             renderProductInfo(product: product),
             const DividerContainer(),
-            renderDescriptionImages(detailImages: product.detailImageUrls),
+            renderDescriptionImages(
+              detailImages: product.detailImageUrls,
+              periodOfUse: product.periodOfUse,
+              warranty: product.warranty,
+              address: product.user.address.address,
+              typeOfTransaction: product.typeOfTransaction,
+            ),
             const SizedBox(height: 40.0),
             const DividerContainer(),
             const RatingContainer(),
@@ -151,14 +157,36 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Text(
-            product.title,
-            style: MyTextStyle.bodyTitleMedium,
+          Row(
+            children: [
+              Text(
+                product.title,
+                style: MyTextStyle.bodyTitleMedium,
+              ),
+              const SizedBox(width: 12.0),
+              Text(
+                '(제조사: ${product.manufacturingCompany})',
+                style: MyTextStyle.descriptionRegular.copyWith(
+                  color: MyColor.darkGrey,
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 8.0),
-          Text(
-            '${DataUtils.convertPriceToMoneyString(price: product.price)} 원',
-            style: MyTextStyle.bigTitleBold,
+          Row(
+            children: [
+              Text(
+                '${DataUtils.convertPriceToMoneyString(price: product.price)} 원',
+                style: MyTextStyle.bigTitleBold,
+              ),
+              const SizedBox(width: 12.0),
+              Text(
+                '(구매가격 ${DataUtils.convertPriceToMoneyString(price: product.purchasePrice)} 원)',
+                style: MyTextStyle.descriptionRegular.copyWith(
+                  color: MyColor.darkGrey,
+                ),
+              ),
+            ],
           ),
           const SizedBox(height: 8.0),
           Row(
@@ -194,6 +222,10 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
 
   Widget renderDescriptionImages({
     required List<String> detailImages,
+    required String periodOfUse,
+    required String warranty,
+    required String address,
+    required String typeOfTransaction,
   }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -203,6 +235,29 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
           child: Text(
             '상품 정보',
             style: MyTextStyle.bigTitleMedium,
+          ),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left: 24.0, right: 24.0, bottom: 8.0),
+          child: Column(
+            children: [
+              _renderTitleAndDescription(
+                title: '사용기간',
+                description: '$periodOfUse 개월',
+              ),
+              _renderTitleAndDescription(
+                title: '보증기간',
+                description: '$warranty 개월',
+              ),
+              _renderTitleAndDescription(
+                title: '판매자 위치',
+                description: address,
+              ),
+              _renderTitleAndDescription(
+                title: '거래방식',
+                description: typeOfTransaction,
+              ),
+            ],
           ),
         ),
         ListView.builder(
@@ -268,11 +323,38 @@ class _ProductDetailScreenState extends ConsumerState<ProductDetailScreen> {
                   const SizedBox(height: 8.0),
                   Text(
                     '등급: ${user.grade}',
-                    style: MyTextStyle.bodyRegular,
+                    style: MyTextStyle.descriptionRegular,
                   ),
                 ],
               ),
             ],
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _renderTitleAndDescription({
+    required String title,
+    required String description,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          SizedBox(
+            width: 100.0,
+            child: Text(
+              title,
+              style: MyTextStyle.descriptionMedium,
+            ),
+          ),
+          Expanded(
+            child: Text(
+              description,
+              style: MyTextStyle.descriptionRegular,
+            ),
           ),
         ],
       ),

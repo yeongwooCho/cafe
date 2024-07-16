@@ -81,6 +81,31 @@ class ProductStateNotifier extends StateNotifier<List<ProductModel>> {
       'KASLE 헬스 기구': 3200000,
     };
 
+    final manufacturingCompanies = [
+      'JEA',
+      'ROGUE',
+      'WEA',
+      'CRUNCH',
+      'PELO',
+      'ATA',
+      'ntanva',
+      'MAV',
+      'ROGE',
+      'CONCEPT',
+      'YORK',
+      'ROGE',
+      'WANO',
+      'POLUMA',
+      'YAKA',
+      'GAP',
+      'PARA',
+      'AGORA',
+      'SOLID',
+      'GAG',
+      'KASLE',
+      'KASLE',
+    ];
+
     final user = ref.watch(userProvider) as UserModel;
 
     final now = DateTime.now();
@@ -91,7 +116,13 @@ class ProductStateNotifier extends StateNotifier<List<ProductModel>> {
       (index) => ProductModel(
         id: index,
         title: products.keys.toList()[index],
+        manufacturingCompany: manufacturingCompanies[index],
         price: products.values.toList()[index],
+        purchasePrice: products.values.toList()[index] * 3 ~/ 2,
+        periodOfUse: ((DataUtils.getRandomInt(dividerNumber: 360) + 360) ~/ 30)
+            .toString(),
+        warranty: ((DataUtils.getRandomInt(dividerNumber: 360) + 360) ~/ 30)
+            .toString(),
         mainImageUrl: 'asset/img/product/$index.png',
         detailImageUrls: [
           'asset/img/product/$index/0.png',
@@ -104,6 +135,7 @@ class ProductStateNotifier extends StateNotifier<List<ProductModel>> {
         createdAt: createdAt.subtract(Duration(
           days: DataUtils.getRandomDouble(min: 1.0, range: 10).toInt(),
         )),
+        typeOfTransaction: index % 2 == 0 ? '직거래': '화물거래',
       ),
     );
   }
