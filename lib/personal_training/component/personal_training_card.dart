@@ -57,6 +57,8 @@ class PersonalTrainingCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final double cardWidth = MediaQuery.of(context).size.width - 48;
+    final bool isHealth =
+        ['피트니스 파워 하우스', '비전 피트니스', '피트니스 이노베이션'].contains(title);
 
     return Container(
       decoration: BoxDecoration(
@@ -106,9 +108,38 @@ class PersonalTrainingCard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
-                      Text(
-                        title,
-                        style: MyTextStyle.bodyTitleMedium,
+                      Row(
+                        children: [
+                          Text(
+                            title,
+                            style: MyTextStyle.bodyTitleMedium,
+                          ),
+                          const SizedBox(width: 12.0),
+                          Container(
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                width: 1.0,
+                                color:
+                                    isHealth ? MyColor.primary : MyColor.heart,
+                              ),
+                              borderRadius: BorderRadius.circular(8.0),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 8.0,
+                                vertical: 2.0,
+                              ),
+                              child: Text(
+                                isHealth ? '헬스장' : 'PT샵',
+                                style: MyTextStyle.descriptionRegular.copyWith(
+                                  color: isHealth
+                                      ? MyColor.primary
+                                      : MyColor.heart,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       const SizedBox(height: 8.0),
                       Text(
