@@ -49,7 +49,7 @@ class PersonalTrainingDetailScreen extends ConsumerWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const Text(
-                    'PT샵 소개',
+                    '헬스장 소개',
                     style: MyTextStyle.bodyTitleMedium,
                   ),
                   const SizedBox(height: 8.0),

@@ -23,7 +23,7 @@ class PersonalTrainingListScreen extends ConsumerWidget {
         ref.watch(personalTrainingCategorySelectedProvider);
 
     return DefaultLayout(
-      appbar: const DefaultAppBar(title: 'PT샵 리스트'),
+      appbar: const DefaultAppBar(title: '헬스장 리스트'),
       child: Column(
         children: [
           SizedBox(

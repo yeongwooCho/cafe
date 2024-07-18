@@ -22,7 +22,7 @@ class PersonalTrainingScreen extends ConsumerWidget {
     final pts = ref.watch(personalTrainingProvider);
 
     return DefaultLayout(
-      appbar: const DefaultAppBar(title: 'PT샵'),
+      appbar: const DefaultAppBar(title: '헬스장'),
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
@@ -36,7 +36,7 @@ class PersonalTrainingScreen extends ConsumerWidget {
                 children: [
                   _renderContainerButton(
                     topOfTitle: '전체보기',
-                    downOfTitle: 'PT샵',
+                    downOfTitle: '헬스장',
                     onTap: () {
                       context.goNamed(PersonalTrainingListScreen.routeName);
                     },
@@ -44,7 +44,7 @@ class PersonalTrainingScreen extends ConsumerWidget {
                   const SizedBox(width: 8.0),
                   _renderContainerButton(
                     topOfTitle: 'AI 추천',
-                    downOfTitle: 'PT샵',
+                    downOfTitle: '헬스장',
                     onTap: () {
                       context.goNamed(AIReferenceScreen.routeName);
                     },

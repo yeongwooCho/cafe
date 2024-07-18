@@ -60,7 +60,7 @@ class HomeScreen extends ConsumerWidget {
             CategoryContainer(),
             const SizedBox(height: 40.0),
             HorizontalPageView(
-              title: '추천 PT샵',
+              title: '추천 헬스장',
               pts: pts.sublist(0, 5),
             ),
             const SizedBox(height: 40.0),

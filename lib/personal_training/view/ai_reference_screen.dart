@@ -44,7 +44,7 @@ class _AIReferenceScreenState extends State<AIReferenceScreen> {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               const Text(
-                'AI 카페가\n고객님이 입력해 주신 기준에 따라\nPT샵을 추천해 드립니다.',
+                'AI 카페가\n고객님이 입력해 주신 기준에 따라\n헬스장을 추천해 드립니다.',
                 style: MyTextStyle.bigTitleBold,
               ),
               const SizedBox(height: 40.0),

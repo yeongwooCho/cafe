@@ -70,7 +70,7 @@ class _ScaffoldWithNavState extends State<ScaffoldWithNav> {
               PhosphorIcons.barbell(),
               size: 30.0,
             ),
-            label: 'PT샵',
+            label: '헬스장',
           ),
           BottomNavigationBarItem(
             icon: PhosphorIcon(
